@@ -1,7 +1,7 @@
 bl_info = {
         'name': 'Seams to Sewing Pattern',
-        'author': 'Thomas Kole',
-        'version': (1, 0),
+        'author': 'Thomas Kole, Arty Redd',
+        'version': (1, 1),
         'blender': (2, 80, 0),
         'category': 'Cloth',
         'description': 'Converts a mesh with seams into sewing patterns with sewing edges',
@@ -15,12 +15,14 @@ if "bpy" in locals():
     importlib.reload(op_quick_clothsim)
     importlib.reload(op_boundary_alinged_remesh)
     importlib.reload(op_clean_up_edges)
+    importlib.reload(op_mark_directional_material)
 else:
     from . import op_seams_to_sewingpattern
     from . import op_export_sewingpattern
     from . import op_quick_clothsim
     from . import op_boundary_alinged_remesh
     from . import op_clean_up_edges
+    from . import op_mark_directional_material
 
 import bpy
 from bpy.types import Menu
@@ -57,7 +59,9 @@ classes = [
     op_export_sewingpattern.Export_Sewingpattern,
     op_quick_clothsim.QuickClothsim,
     op_boundary_alinged_remesh.Remesher,
-    op_clean_up_edges.CleanUpEdges
+    op_clean_up_edges.CleanUpEdges,
+    op_mark_directional_material.Mark_Directional_Material_Dialog,
+    op_mark_directional_material.Mark_Directional_Material
     ]
 
 def register():
